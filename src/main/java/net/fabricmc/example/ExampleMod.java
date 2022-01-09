@@ -1,21 +1,28 @@
 package net.fabricmc.example;
 
+import me.andrew.gravitychanger.api.GravityChangerAPI;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.minecraft.entity.player.PlayerEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ExampleMod implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
+import static net.minecraft.util.math.Direction.SOUTH;
+
+public class ExampleMod extends GravityChangerAPI implements ModInitializer  {
+	//todo your mother
 	public static final Logger LOGGER = LogManager.getLogger("modid");
 
+	/**
+	 * Runs the mod initializer.
+	 */
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
-		LOGGER.info("Hello Fabric world!");
+		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			PlayerEntity player = handler.getPlayer();
+			//if(player.distanceTo(server.getWorld().) < 15){} //todo add radius checks ie. add entity in block, check distance/relative position to entity and adjust accordingly
+			GravityChangerAPI.setGravityDirection(player, SOUTH);
+			LOGGER.info("Hello Fabric world!");
+		});
 	}
 }
