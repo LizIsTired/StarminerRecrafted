@@ -12,7 +12,7 @@ import static net.minecraft.util.math.Direction.SOUTH;
 public class ExampleMod extends GravityChangerAPI implements ModInitializer  {
 	//todo your mother
 	public static final Logger LOGGER = LogManager.getLogger("modid");
-	//test 1
+
 
 	/**
 	 * Runs the mod initializer.
