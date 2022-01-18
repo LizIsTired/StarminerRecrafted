@@ -1,29 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "starminerrecrafted",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Starminer Recrafted",
+  "description": "ha lol",
   "authors": [
-    "Me!"
+    "LizIsTired"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/LizIsTired/StarminerRecrafted"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/starminerrecrafted/icon.png",
 
   "environment": "client",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.lizistired.starminerrecrafted.MainInit"
+    ],
+    "client": [
+      "net.lizistired.starminerrecrafted.MainInitClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "starminerrecrafted.mixins.json"
   ],
 
   "depends": {
