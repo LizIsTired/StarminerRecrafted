@@ -1,4 +1,5 @@
 package net.lizistired.starminerrecrafted.basics.structures;
+//todo get this whole thing to work, some old Forge functions need redoing for Fabric
 
 /* import jp.mc.ancientred.starminer.basics.structure.ComponentStar;
 import net.minecraft.block.Block;

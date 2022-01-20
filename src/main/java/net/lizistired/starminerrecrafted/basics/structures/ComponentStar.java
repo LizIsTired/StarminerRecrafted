@@ -1,4 +1,5 @@
 package net.lizistired.starminerrecrafted.basics.structures;
+//todo get this whole thing to work, some old Forge functions need redoing for Fabric, this is the big one
 
 /* import jp.mc.ancientred.starminer.api.IZeroGravityWorldProvider;
 import jp.mc.ancientred.starminer.basics.SMModContainer;

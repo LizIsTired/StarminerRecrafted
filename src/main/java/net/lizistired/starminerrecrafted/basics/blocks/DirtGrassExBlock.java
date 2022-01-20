@@ -30,30 +30,10 @@ public class DirtGrassExBlock extends Block {
         return ColorizerGrass.getGrassColor(d0,d1);
     }*/
 
+    //todo get this to work, currently causes a crash without an exception handler
     @Environment(EnvType.CLIENT)
     public void getBlockColor() {
         int color = BiomeColors.getGrassColor(MinecraftClient.getInstance().world, MinecraftClient.getInstance().player.getBlockPos());
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> color, this);
     }
 }
-
-/*"frames": [
-        0,
-        0,
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        5,
-        4,
-        3,
-        2,
-        1,
-        0,
-        0,
-        0,
-        ]
-*/
