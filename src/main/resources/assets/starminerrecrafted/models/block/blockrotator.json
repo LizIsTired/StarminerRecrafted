@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "starminerrecrafted:block/g_coreitem"
+    "all": "starminerrecrafted:block/rotator_yellow"
   }
 }

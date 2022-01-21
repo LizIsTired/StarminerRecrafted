@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minecraft:entity/bed/red",
+    "layer1": "starminerrecrafted:item/starmark"
+  }
+}

@@ -41,10 +41,10 @@
 
     "item.starminerrecrafted.gravitycontroller":"Gravity Controller",
     "item.starminerrecrafted.starcontroller":"Star Controller",
-    "item.starminerrecrafted.solarwindFan":"Solar Wind Fan",
+    "item.starminerrecrafted.solarwindfan":"Solar Wind Fan",
     "item.starminerrecrafted.starbed":"Star Bed",
     "item.starminerrecrafted.starcore_dust":"Stardust",
-    "item.starminerrecrafted.g_rapplegun":"G-rappleGun",
+    "item.starminerrecrafted.g_rapplegun":"G-rapple Gun",
     "item.starminerrecrafted.g_rapplegun.keyguide":"Press %1$s to release",
     "item.starminerrecrafted.g_arrow":"G-Arrow",
     "item.starminerrecrafted.g_hook":"G-Arrow With Rope",
@@ -52,11 +52,10 @@
     "item.starminerrecrafted.carrotgravitizeditem":"Carrot(+G)",
     "item.starminerrecrafted.potatogravitizeditem":"Potato(+G)",
 
-    "item.starminerrecrafted.blockgun.short":"Floating Block Gun(Short)",
-    "item.starminerrecrafted.blockgun.normal":"Floating Block Gun(Normal)",
-    "item.starminerrecrafted.blockgun.long":"Floating Block Gun(Long)",
-    "item.starminerrecrafted.blockgun.spread":"Floating Block Gun(Spread)",
-
+    "item.starminerrecrafted.blockgun_short":"Floating Block Gun (Short)",
+    "item.starminerrecrafted.blockgun_normal":"Floating Block Gun (Normal)",
+    "item.starminerrecrafted.blockgun_long":"Floating Block Gun (Long)",
+    "item.starminerrecrafted.blockgun_spread":"Floating Block Gun (Spread)",
     "item.starminerrecrafted.saplinggravitized.oak":"Oak Sapling(+G)",
     "item.starminerrecrafted.saplinggravitized.spruce":"Spruce Sapling(+G)",
     "item.starminerrecrafted.saplinggravitized.birch":"Birch Sapling(+G)",

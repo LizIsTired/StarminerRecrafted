@@ -15,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.client.texture.TextureManager;
 import net.minecraft.util.registry.Registry;
 
 import org.apache.logging.log4j.LogManager;

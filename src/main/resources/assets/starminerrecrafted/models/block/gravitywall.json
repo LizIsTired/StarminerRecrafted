@@ -1,6 +1,23 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/thin_block",
   "textures": {
-    "all": "starminerrecrafted:block/gravitywall"
-  }
+    "gravitywall": "starminerrecrafted:block/gravitywall",
+    "particle": "starminerrecrafted:block/gravitywall"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 1, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#gravitywall"},
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#gravitywall"},
+        "north": { "uv": [ 0, 14, 16, 16 ], "texture": "#gravitywall"},
+        "south": { "uv": [ 0, 14, 16, 16 ], "texture": "#gravitywall"},
+        "west":  { "uv": [ 0, 14, 16, 16 ], "texture": "#gravitywall"},
+        "east":  { "uv": [ 0, 14, 16, 16 ], "texture": "#gravitywall"}
+      }
+    }
+  ]
 }
+
+

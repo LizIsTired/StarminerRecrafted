@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "starminerrecrafted:item/gcontroller_a",
+    "layer1": "starminerrecrafted:item/gcontroller_b"
+  }
+}
