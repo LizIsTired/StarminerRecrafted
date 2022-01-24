@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "MixinDebugScreenOverlay"
   ],
   "server": [
     "ExampleMixin"

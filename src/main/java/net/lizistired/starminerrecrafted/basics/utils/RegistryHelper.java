@@ -150,7 +150,7 @@ public void registerEverything(){
         Registry.register(Registry.ITEM, new Identifier(namespace, "carrotgravitizeditem"), CarrotGravitizedItem);
         Registry.register(Registry.ITEM, new Identifier(namespace, "potatogravitizeditem"), PotatoGravitizedItem);
 
-       ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92BD59, DirtGrassExBlock);
+
 
 
        /*Registry.register(Registry.ITEM, new Identifier(namespace, "gravitywall"), new BlockItem(PlantYelGravitizedBlock, new FabricItemSettings().group(STARMINER_GROUP)));
@@ -166,6 +166,9 @@ public void registerEverything(){
     }
 
     public void registerOtherThings(){
-        GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));
+
+    ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92BD59, DirtGrassExBlock);
+
+    GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));
     }
 }
