@@ -1,9 +1,9 @@
-# Fabric Example Mod
+# Starminer Recrafted
 
-## Setup
+## About
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+This is a modern Fabric rewrite of the popular Forge 1.7.10 mod StarMiner
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+The textures at this stage are from the original but there's a high change I'll be remaking them. The code, however, is written by me.
