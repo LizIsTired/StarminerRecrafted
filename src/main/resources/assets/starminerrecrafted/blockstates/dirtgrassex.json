@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": { "model": "starminerrecrafted:block/dirtgrassex" }
+    "": { "model": "starminerrecrafted:block/dirtgrassex"
+    }
   }
 }

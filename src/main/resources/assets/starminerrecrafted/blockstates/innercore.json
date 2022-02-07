@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "starminerrecrafted:block/innercore" }
+    "": {
+      "model": "starminerrecrafted:block/innercore"
+    }
   }
 }

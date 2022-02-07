@@ -1,12 +1,17 @@
 package net.lizistired.starminerrecrafted.basics.utils;
 
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.lizistired.starminerrecrafted.basics.blockentities.GravityCoreBlockEntity;
+import net.lizistired.starminerrecrafted.basics.structures.test.MyFeature;
+import net.lizistired.starminerrecrafted.basics.structures.test.MyGenerator;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -14,11 +19,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 
 import net.lizistired.starminerrecrafted.basics.blocks.*;
 import net.lizistired.starminerrecrafted.basics.blocks.bed.*;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 
 import static net.lizistired.starminerrecrafted.MainInit.namespace;
 
@@ -33,32 +45,23 @@ public class RegistryHelper {
         }
     })).icon(() -> new ItemStack(OuterCoreBlock)).build();
 
-
-
-    //public static final StructurePieceType MY_PIECE = MyGenerator.MyPiece::new;
-    //private static final StructureFeature<DefaultFeatureConfig> MY_STRUCTURE = new MyFeature(DefaultFeatureConfig.CODEC);
-    //private static final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = MY_STRUCTURE.configure(DefaultFeatureConfig.DEFAULT);
-
-
-
-
     //items
-    public static Item GravityControllerItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
-    public static Item StarControllerItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
-    public static Item SolarWindFanItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
-    public static Item StarBedItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
-    public static Item StardustItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
-    public static Item GrappleGunItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
+    public static Item GravityControllerItem = new Item(new FabricItemSettings().group(STARMINER_GROUP).maxCount(1));
+    public static Item StarControllerItem = new Item(new FabricItemSettings().group(STARMINER_GROUP).maxCount(1));
+    public static Item SolarWindFanItem = new Item(new FabricItemSettings().group(STARMINER_GROUP).maxCount(1).maxDamage(500));
+    public static Item StarBedItem = new Item(new FabricItemSettings().group(STARMINER_GROUP).maxCount(1));
+    public static Item StardustItem = new Item(new FabricItemSettings().group(STARMINER_GROUP).maxCount(64));
+    public static Item GrappleGunItem = new Item(new FabricItemSettings().group(STARMINER_GROUP).maxCount(1).maxDamage(512));
     public static Item BlockGunItemNormal = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item BlockGunItemShort = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item BlockGunItemLong = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item BlockGunItemSpread = new Item(new FabricItemSettings().group(STARMINER_GROUP));
-
     public static Item GArrowItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item GHookItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item SeedGravitizedItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item CarrotGravitizedItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
     public static Item PotatoGravitizedItem = new Item(new FabricItemSettings().group(STARMINER_GROUP));
+
     //blocks
     public static Block GravityCoreBlock = new GravityCoreBlock(FabricBlockSettings.of(Material.STONE).hardness(1.0f).nonOpaque());
     public static Block InnerCoreBlock = new InnerCoreBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(45.0f).resistance(2000.0f).luminance(1));
@@ -78,12 +81,19 @@ public class RegistryHelper {
     public static Block CarrotGravitizedBlock = new CarrotGravitizedBlock(FabricBlockSettings.of(Material.PLANT).hardness(0.0f));
     public static Block PotatoGravitizedBlock = new PotatoGravitizedBlock(FabricBlockSettings.of(Material.PLANT).hardness(0.0f));
     public static Block TallGrassGravitizedBlock = new TallGrassGravitizedBlock(FabricBlockSettings.of(Material.PLANT).hardness(0.0f));
+
     //block entities
     public static BlockEntityType<GravityCoreBlockEntity> GravityCoreBlockEntity;
+
+    //structures
+    public static final StructurePieceType MY_PIECE = MyGenerator.MyPiece::new;
+    private static final StructureFeature<DefaultFeatureConfig> MY_STRUCTURE = new MyFeature(DefaultFeatureConfig.CODEC);
+    private static final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = MY_STRUCTURE.configure(DefaultFeatureConfig.DEFAULT);
 
 public void registerEverything(){
     registerItemsAndBlocksClass();
     registerOtherThings();
+    registerStructures();
 }
 
    public void registerItemsAndBlocksClass() {
@@ -157,18 +167,25 @@ public void registerEverything(){
 
        Registry.register(Registry.ITEM, new Identifier(namespace, "gravitywall"), new BlockItem(PlantYelGravitizedBlock, new FabricItemSettings().group(STARMINER_GROUP)));
 
-       Registry.register(Registry.ITEM, new Identifier(namespace, "gravitywall"), new BlockItem(PlantYelGravitizedBlock, new FabricItemSettings().group(STARMINER_GROUP)));
-
-
-        */
-
-
+       Registry.register(Registry.ITEM, new Identifier(namespace, "gravitywall"), new BlockItem(PlantYelGravitizedBlock, new FabricItemSettings().group(STARMINER_GROUP)));*/
     }
 
     public void registerOtherThings(){
 
     ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92BD59, DirtGrassExBlock);
 
-    GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));
+    GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));}
+
+    public void registerStructures(){
+        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(namespace, "my_piece"), MY_PIECE);
+        FabricStructureBuilder.create(new Identifier(namespace, "my_structure"), MY_STRUCTURE)
+                .step(GenerationStep.Feature.SURFACE_STRUCTURES)
+                .defaultConfig(32, 8, 12345)
+                .adjustsSurface()
+                .register();
+        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_WORLDGEN,
+                new Identifier(namespace, "my_structure"));
+        BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), MY_CONFIGURED);
+        BiomeModifications.addStructure(BiomeSelectors.all(), myConfigured);
     }
 }

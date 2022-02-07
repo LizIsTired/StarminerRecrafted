@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "starminerrecrafted:block/manbazooka" }
+    "": {
+      "model": "starminerrecrafted:block/manbazooka"
+    }
   }
 }

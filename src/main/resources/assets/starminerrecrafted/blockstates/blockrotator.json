@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "starminerrecrafted:block/blockrotator" }
+    "": {
+      "model": "starminerrecrafted:block/blockrotator"
+    }
   }
 }

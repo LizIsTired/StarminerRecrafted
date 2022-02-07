@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "starminerrecrafted:block/g_core" }
+    "": {
+      "model": "starminerrecrafted:block/g_core"
+    }
   }
 }

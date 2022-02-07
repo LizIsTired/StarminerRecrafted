@@ -1,6 +1,7 @@
 package net.lizistired.starminerrecrafted.basics.blockentities;
 
 import me.andrew.gravitychanger.api.GravityChangerAPI;
+import me.shedaniel.autoconfig.annotation.Config;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,12 +21,26 @@ import static net.lizistired.starminerrecrafted.basics.utils.RegistryHelper.Grav
 import static net.minecraft.util.math.Direction.*;
 
 public class GravityCoreBlockEntity extends BlockEntity {
+    public double gravityRange;
+    public double starRad;
+    public int type;
+    public short workStateX;
+    public short workStateY;
+    public short workStateZ;
+    public boolean workFast;
     public static Direction relativeDirection = DOWN;
     public static int gravityRadius = 10;
     public static final Logger LOGGER = LogManager.getLogger(namespace);
 
     public GravityCoreBlockEntity(BlockPos pos, BlockState state) {
         super(GravityCoreBlockEntity, pos, state);
+        this.gravityRange = 0.0;
+        this.starRad = 0.0;
+        this.type = 0;
+        this.workStateX = 0;
+        this.workStateY = 0;
+        this.workStateZ = 0;
+        this.workFast = false;
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, GravityCoreBlockEntity be) {
@@ -87,4 +102,19 @@ public class GravityCoreBlockEntity extends BlockEntity {
             //}
         }
     }
+
+    /*public void fixInValidRange() {
+        if (this.gravityRange < 0.0) {
+            this.gravityRange = 0.0;
+        }
+        if (this.gravityRange > Config.maxGravityRad) {
+            this.gravityRange = (double)Config.maxGravityRad;
+        }
+        if (this.starRad < 0.0) {
+            this.starRad = 0.0;
+        }
+        if (this.starRad > Config.maxStarRad) {
+            this.starRad = (double)Config.maxStarRad;
+        }
+    }*/
 }

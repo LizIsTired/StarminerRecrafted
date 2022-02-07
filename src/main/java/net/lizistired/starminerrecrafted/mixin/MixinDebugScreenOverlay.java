@@ -10,11 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.management.BufferPoolMXBean;
 import java.lang.management.ManagementFactory;
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import static net.lizistired.starminerrecrafted.basics.blockentities.GravityCoreBlockEntity.relativeDirection;
 
@@ -43,7 +40,8 @@ public abstract class MixinDebugScreenOverlay {
         List<String> messages = cir.getReturnValue();
 
         messages.add("");
-        messages.add("Direction: " + relativeDirection);
+        messages.add("Direction: " + relativeDirection.toString().toUpperCase());
+        messages.add("Direction: " + relativeDirection.toString().toUpperCase());
         messages.add("");
     }
 }

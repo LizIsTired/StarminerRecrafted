@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "starminerrecrafted:block/gravitywall" }
+    "": {
+      "model": "starminerrecrafted:block/gravitywall"
+    }
   }
 }
