@@ -18,7 +18,12 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
-	maven { url "https://maven.shedaniel.me/" }
+	maven {
+		url = "https://maven.shedaniel.me/"
+	}
+	maven {
+		url = "https://maven.kyrptonaught.dev"
+	}
 }
 
 dependencies {
@@ -33,6 +38,8 @@ dependencies {
 	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
+	modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
+	include "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
 }
 
 processResources {

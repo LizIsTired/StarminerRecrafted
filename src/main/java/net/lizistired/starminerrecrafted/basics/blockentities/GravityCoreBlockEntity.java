@@ -90,6 +90,7 @@ public class GravityCoreBlockEntity extends BlockEntity {
             }
             else {
                 GravityChangerAPI.setGravityDirection(player, DOWN);
+                player.setNoGravity(true);
             }
 
             //player.sendSystemMessage(Text.of("There is a gravity core in the: " + relativeDirection + " direction!"), Util.NIL_UUID);

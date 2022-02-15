@@ -9,15 +9,13 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.lizistired.starminerrecrafted.basics.blockentities.GravityCoreBlockEntity;
-import net.lizistired.starminerrecrafted.basics.structures.test.MyFeature;
-import net.lizistired.starminerrecrafted.basics.structures.test.MyGenerator;
+//import net.lizistired.starminerrecrafted.basics.structures.test.MyFeature;
+//import net.lizistired.starminerrecrafted.basics.structures.test.MyGenerator;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
@@ -86,14 +84,15 @@ public class RegistryHelper {
     public static BlockEntityType<GravityCoreBlockEntity> GravityCoreBlockEntity;
 
     //structures
-    public static final StructurePieceType MY_PIECE = MyGenerator.MyPiece::new;
-    private static final StructureFeature<DefaultFeatureConfig> MY_STRUCTURE = new MyFeature(DefaultFeatureConfig.CODEC);
-    private static final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = MY_STRUCTURE.configure(DefaultFeatureConfig.DEFAULT);
+    //public static final StructurePieceType MY_PIECE = MyGenerator.MyPiece::new;
+    //private static final StructureFeature<DefaultFeatureConfig> MY_STRUCTURE = new MyFeature(DefaultFeatureConfig.CODEC);
+    //private static final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = MY_STRUCTURE.configure(DefaultFeatureConfig.DEFAULT);
 
 public void registerEverything(){
     registerItemsAndBlocksClass();
     registerOtherThings();
     registerStructures();
+    registerPortals();
 }
 
    public void registerItemsAndBlocksClass() {
@@ -177,15 +176,24 @@ public void registerEverything(){
     GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));}
 
     public void registerStructures(){
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(namespace, "my_piece"), MY_PIECE);
-        FabricStructureBuilder.create(new Identifier(namespace, "my_structure"), MY_STRUCTURE)
-                .step(GenerationStep.Feature.SURFACE_STRUCTURES)
-                .defaultConfig(32, 8, 12345)
-                .adjustsSurface()
-                .register();
-        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_WORLDGEN,
-                new Identifier(namespace, "my_structure"));
-        BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), MY_CONFIGURED);
-        BiomeModifications.addStructure(BiomeSelectors.all(), myConfigured);
+        //Registry.register(Registry.STRUCTURE_PIECE, new Identifier(namespace, "my_piece"), MY_PIECE);
+        //FabricStructureBuilder.create(new Identifier(namespace, "my_structure"), MY_STRUCTURE)
+        //        .step(GenerationStep.Feature.SURFACE_STRUCTURES)
+        //        .defaultConfig(32, 8, 12345)
+        //        .adjustsSurface()
+        //        .register();
+        //RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_WORLDGEN,
+        //        new Identifier(namespace, "my_structure"));
+        //BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), MY_CONFIGURED);
+        //BiomeModifications.addStructure(BiomeSelectors.all(), myConfigured);
+    }
+
+    public void registerPortals(){
+        CustomPortalBuilder.beginPortal()
+                .frameBlock(Blocks.DIAMOND_BLOCK)
+                .lightWithItem(Items.ENDER_EYE)
+                .destDimID(new Identifier("starminerrecrafted:space"))
+                .tintColor(45,65,101)
+                .registerPortal();
     }
 }

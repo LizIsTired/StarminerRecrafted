@@ -1,0 +1,12 @@
+{
+  "type": "starminerrecrafted:space",
+  "generator": {
+    "biome_source": {
+      "biome": "starminerrecrafted:space",
+      "type": "minecraft:fixed"
+    },
+    "seed": 286956243,
+    "settings": "minecraft:overworld",
+    "type": "minecraft:noise"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "biome_source": {
+    "biome": "minecraft:plains",
+    "type": "minecraft:fixed"
+  },
+  "seed": 286956243,
+  "settings": {
+    "structures": {
+      "structures": {}
+    },
+    "layers": [],
+    "biome": "minecraft:the_void"
+  },
+  "type": "minecraft:flat"
+}
