@@ -9,6 +9,8 @@
     "block.starminerrecrafted.blockrotator":"Fake Rotator",
     "block.starminerrecrafted.blockrotator_alpha":"Fake Rotator(Alpha)",
 
+    "block.starminerrecrafted.spheregenblock": "Star Generator Block (DEBUG)",
+
     "block.starminerrecrafted.dirtgrassex":"Star Dirt",
     "block.starminerrecrafted.cropgravitized":"Crops(+G)",
     "block.starminerrecrafted.carrotgravitized":"Carrots(+G)",
@@ -38,6 +40,9 @@
 
     "item.starminerrecrafted.g_core": "Gravity Core",
     "item.starminerrecrafted.g_core.tooltip": "Cringe!",
+
+    "item.starminerrecrafted.spheregenblock": "Star Generator Block (DEBUG)",
+    "item.starminerrecrafted.spheregenblock.tooltip": "Only for debugging, spawns a sphere.",
 
     "item.starminerrecrafted.gravitycontroller":"Gravity Controller",
     "item.starminerrecrafted.starcontroller":"Star Controller",

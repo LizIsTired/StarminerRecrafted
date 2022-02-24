@@ -13,6 +13,7 @@ import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.lizistired.starminerrecrafted.basics.blockentities.GravityCoreBlockEntity;
 //import net.lizistired.starminerrecrafted.basics.structures.test.MyFeature;
 //import net.lizistired.starminerrecrafted.basics.structures.test.MyGenerator;
+import net.lizistired.starminerrecrafted.basics.blockentities.SphereGenBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
@@ -80,22 +81,25 @@ public class RegistryHelper {
     public static Block PotatoGravitizedBlock = new PotatoGravitizedBlock(FabricBlockSettings.of(Material.PLANT).hardness(0.0f));
     public static Block TallGrassGravitizedBlock = new TallGrassGravitizedBlock(FabricBlockSettings.of(Material.PLANT).hardness(0.0f));
 
+    public static Block SphereGenBlock = new SphereGenBlock(FabricBlockSettings.of(Material.STONE).hardness(1.0f).nonOpaque());
+
     //block entities
     public static BlockEntityType<GravityCoreBlockEntity> GravityCoreBlockEntity;
+    public static BlockEntityType<SphereGenBlockEntity> SphereGenBlockEntity;
 
     //structures
     //public static final StructurePieceType MY_PIECE = MyGenerator.MyPiece::new;
     //private static final StructureFeature<DefaultFeatureConfig> MY_STRUCTURE = new MyFeature(DefaultFeatureConfig.CODEC);
     //private static final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = MY_STRUCTURE.configure(DefaultFeatureConfig.DEFAULT);
 
-public void registerEverything(){
-    registerItemsAndBlocksClass();
-    registerOtherThings();
-    registerStructures();
-    registerPortals();
-}
+    public void registerEverything() {
+        registerItemsAndBlocksClass();
+        registerOtherThings();
+        registerStructures();
+        registerPortals();
+    }
 
-   public void registerItemsAndBlocksClass() {
+    public void registerItemsAndBlocksClass() {
         //todo add all items and blocks, add logic for each thing later, also add recipes and trading options
         Registry.register(Registry.BLOCK, new Identifier(namespace, "g_core"), GravityCoreBlock);
         Registry.register(Registry.ITEM, new Identifier(namespace, "g_core"), new BlockItem(GravityCoreBlock, new FabricItemSettings().group(STARMINER_GROUP)));
@@ -141,6 +145,9 @@ public void registerEverything(){
         Registry.register(Registry.BLOCK, new Identifier(namespace, "rflowergravitized.poppy"), PlantRedGravitizedBlock);
         Registry.register(Registry.ITEM, new Identifier(namespace, "rflowergravitized.poppy"), new BlockItem(PlantRedGravitizedBlock, new FabricItemSettings().group(STARMINER_GROUP)));
 
+        Registry.register(Registry.BLOCK, new Identifier(namespace, "spheregenblock"), SphereGenBlock);
+        Registry.register(Registry.ITEM, new Identifier(namespace, "spheregenblock"), new BlockItem(SphereGenBlock, new FabricItemSettings().group(STARMINER_GROUP)));
+
 
         //just items
         Registry.register(Registry.ITEM, new Identifier(namespace, "gravitycontroller"), GravityControllerItem);
@@ -169,11 +176,13 @@ public void registerEverything(){
        Registry.register(Registry.ITEM, new Identifier(namespace, "gravitywall"), new BlockItem(PlantYelGravitizedBlock, new FabricItemSettings().group(STARMINER_GROUP)));*/
     }
 
-    public void registerOtherThings(){
+    public void registerOtherThings() {
 
-    ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92BD59, DirtGrassExBlock);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92BD59, DirtGrassExBlock);
 
-    GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));}
+        GravityCoreBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":gravity_core_block_entity", FabricBlockEntityTypeBuilder.create(GravityCoreBlockEntity::new, GravityCoreBlock).build(null));
+        SphereGenBlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, namespace + ":sphere_gen_block_entity", FabricBlockEntityTypeBuilder.create(SphereGenBlockEntity::new, SphereGenBlock).build(null));
+    }
 
     public void registerStructures(){
         //Registry.register(Registry.STRUCTURE_PIECE, new Identifier(namespace, "my_piece"), MY_PIECE);
