@@ -41,7 +41,7 @@ public abstract class MixinDebugScreenOverlay {
 
         messages.add("");
         messages.add("Direction: " + relativeDirection.toString().toUpperCase());
-        messages.add("Direction: " + relativeDirection.toString().toUpperCase());
+        //messages.add("Direction: " + relativeDirection.toString().toUpperCase());
         messages.add("");
     }
 }
