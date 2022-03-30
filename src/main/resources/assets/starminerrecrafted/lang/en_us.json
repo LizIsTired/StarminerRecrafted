@@ -87,6 +87,7 @@
     "entity.GProjectile":"GArrow",
 
     "itemGroup.starminerrecrafted.starminer": "StarMiner Recrafted",
+    "debug.starminerrecrafted.reload": "Reloaded config!",
 
     "starInfo.inventory":"TerraformingMaterials",
     "starInfo.titleInf":"Star Info",

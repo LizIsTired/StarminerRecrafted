@@ -95,8 +95,8 @@ public class RegistryHelper {
     public void registerEverything() {
         registerItemsAndBlocksClass();
         registerOtherThings();
-        registerStructures();
-        registerPortals();
+        //registerStructures();
+        //registerPortals();
     }
 
     public void registerItemsAndBlocksClass() {
@@ -198,11 +198,11 @@ public class RegistryHelper {
     }
 
     public void registerPortals(){
-        CustomPortalBuilder.beginPortal()
-                .frameBlock(Blocks.DIAMOND_BLOCK)
-                .lightWithItem(Items.ENDER_EYE)
-                .destDimID(new Identifier("starminerrecrafted:space"))
-                .tintColor(45,65,101)
-                .registerPortal();
+        //CustomPortalBuilder.beginPortal()
+        //        .frameBlock(Blocks.DIAMOND_BLOCK)
+        //        .lightWithItem(Items.ENDER_EYE)
+        //        .destDimID(new Identifier("starminerrecrafted:space"))
+        //        .tintColor(45,65,101)
+        //        .registerPortal();
     }
 }
